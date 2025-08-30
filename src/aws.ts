@@ -1,11 +1,10 @@
 import pkg from "aws-sdk";
 const { S3 } = pkg;
-// import { S3 } from "aws-sdk";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { getAllFiles } from "./file.js";
-// import { dir } from "console";
+import "dotenv/config";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,7 +28,6 @@ export async function downloadS3Folder(prefix: string) {
 
   //   console.log("all files: ", allFiles);
 
-  //
   const allPromises =
     allFiles.Contents?.map(async ({ Key }) => {
       return new Promise(async (resolve) => {
@@ -55,7 +53,7 @@ export async function downloadS3Folder(prefix: string) {
           });
       });
     }) || [];
-  console.log("awaiting");
+  // console.log("awaiting");
 
   await Promise.all(allPromises?.filter((x) => x !== undefined));
 }
@@ -80,5 +78,5 @@ const uploadFile = async (fileName: string, localFilePath: string) => {
       Key: fileName,
     })
     .promise();
-  console.log(response);
+  // console.log(response);
 };
