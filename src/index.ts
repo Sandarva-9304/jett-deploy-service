@@ -10,7 +10,6 @@ const redis = new Redis({
 });
 
 async function main() {
-  console.log(github.context.payload);
   const id = github.context.payload.inputs.job_id;
   console.log(id);
 
