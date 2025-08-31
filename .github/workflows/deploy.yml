@@ -1,14 +1,17 @@
 name: Deploy Worker
 
 on:
-  workflow_dispatch:   
-    inputs:  
-      job_id: 
+  workflow_dispatch:
+    inputs:
+      job_id:
         required: true
-        description: 'this is my job id'
-        type: string 
+        description: "this is my job id"
+        type: string
   schedule:
-    - cron: "*/5 * * * *"   # run every 5 minutes (optional)
+    - cron: "*/5 * * * *" # run every 5 minutes (optional)
+  push:
+    branches:
+      - sahil
 
 jobs:
   build-and-run:
