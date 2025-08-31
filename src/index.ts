@@ -15,6 +15,7 @@ async function main() {
 
   await downloadS3Folder(`output/${id}/`);
   console.log("Building project...");
+  await redis.hset("status", { [id]: "building" });
   await buildProject(id);
 
   copyFinalDist(id);
