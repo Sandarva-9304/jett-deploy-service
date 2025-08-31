@@ -7,11 +7,11 @@ on:
         required: true
         description: "this is my job id"
         type: string
-  schedule:
-    - cron: "*/5 * * * *" # run every 5 minutes (optional)
-  push:
-    branches:
-      - sahil
+  # schedule:
+  #   - cron: "*/5 * * * *" # run every 5 minutes (optional)
+  # push:
+  #   branches:
+  #     - sahil
 
 jobs:
   build-and-run:
