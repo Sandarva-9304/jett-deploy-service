@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: "*/5 * * * *"   # run every 5 minutes (optional)
   push:
-    branches: [ "main" ]    # run on push to main (optional)
+    branches: [ "sahil" ]    # run on push to main (optional)
 
 jobs:
   build-and-run:
