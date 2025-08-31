@@ -10,7 +10,7 @@ export function buildProject(id: string) {
       `cd ${path.join(
         __dirname,
         `output/${id}`
-      )} && npm install && npm run build`
+      )} && npm install && npm install --save-dev cross-env && npm pkg set scripts.build="cross-env PUBLIC_URL=/${id} react-scripts build" && npm run build`
     );
 
     child.stdout?.on("data", function (data) {
@@ -22,6 +22,6 @@ export function buildProject(id: string) {
 
     child.on("close", function (code) {
       resolve("");
-    });
-  });
+    });
+  });
 }
