@@ -1,11 +1,14 @@
 name: Deploy Worker
 
 on:
-  workflow_dispatch:   # allow manual trigger
+  workflow_dispatch:   
+    inputs:  
+      job_id: 
+        required: true
+        description: 'this is my job id'
+        type: string 
   schedule:
     - cron: "*/5 * * * *"   # run every 5 minutes (optional)
-  push:
-    branches: [ "sahil" ]    # run on push to main (optional)
 
 jobs:
   build-and-run:
